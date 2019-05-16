@@ -9,9 +9,8 @@ const fizzBuzz = require('./fizzBuzz.js');
 const api = require('./api');
 
 const home = fs.readFileSync('./index.html');
-const error = fs.readFileSync('./error.html');
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 const server = http
     .createServer((req, res) => {
