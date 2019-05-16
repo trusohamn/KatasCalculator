@@ -38,14 +38,23 @@ const server = http
                         res.end(data);
                     }
                 });
+            } else if (path === '/background.jpg') {
+                fs.readFile('background.jpg', (err, data) => {
+                    if (err) {
+                        console.log(error);
+                    } else {
+                        res.writeHead(200, { 'Content-Type': 'image/jpg' });
+                        res.end(data);
+                    }
+                });
             } else {
                 let resource;
                 switch (path) {
-                    case '/calculator': resource = api.create(calculator); break;
-                    case '/arabicToRoman': resource = api.create(aTr); break;
-                    case '/romanToArabic': resource = api.create(rTa); break;
-                    case '/primes': resource = api.create(primes); break;
-                    case '/fizzBuzz': resource = api.create(fizzBuzz); break;
+                    case '/api/calculator': resource = api.create(calculator); break;
+                    case '/api/arabicToRoman': resource = api.create(aTr); break;
+                    case '/api/romanToArabic': resource = api.create(rTa); break;
+                    case '/api/primes': resource = api.create(primes); break;
+                    case '/api/fizzBuzz': resource = api.create(fizzBuzz); break;
                 }
                 resource.route(req, res);
             }
