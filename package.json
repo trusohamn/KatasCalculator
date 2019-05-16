@@ -10,7 +10,7 @@
     "watch": "nodemon --exec 'npm run test'"
   },
   "engines": {
-    "node": "10.15.4"
+    "node": "10.15.3"
   },
   "license": "ISC",
   "devDependencies": {
