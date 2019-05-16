@@ -1,0 +1,21 @@
+{
+  "name": "salt-demo3",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha --exit \"./{,!(node_modules)/**/}*.spec.js\"",
+    "start": "nodemon index.js",
+    "lint": "eslint **/*.js || exit 0",
+    "pretest": "npm run lint",
+    "watch": "nodemon --exec 'npm run test'"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-plugin-mocha": "^5.3.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "eslint": "^5.16.0"
+  }
+}
