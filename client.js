@@ -9,6 +9,10 @@ const output = document.getElementById('output');
 
 buttons.addEventListener('click', (e) => {
     form.action = e.target.name;
+    for(let button of buttons.children){
+        button.className = 'inactive';
+    }
+    e.target.className = 'active';
 });
 
 form.addEventListener('submit', (e) => {

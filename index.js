@@ -20,18 +20,25 @@ const server = http
             if (path === '/') {
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.end(home);
-            }
-            else if (path === '/client.js') {
+            } else if (path === '/client.js') {
                 fs.readFile('client.js', (err, data) => {
                     if (err) {
-                        next();
+                        console.log(error);
                     } else {
                         res.writeHead(200, { 'Content-Type': 'text/javascript' });
                         res.end(data);
                     }
                 });
-            }
-            else {
+            } else if (path === '/style.css') {
+                fs.readFile('style.css', (err, data) => {
+                    if (err) {
+                        console.log(error);
+                    } else {
+                        res.writeHead(200, { 'Content-Type': 'text/css' });
+                        res.end(data);
+                    }
+                });
+            } else {
                 let resource;
                 switch (path) {
                     case '/calculator': resource = api.create(calculator); break;
@@ -39,21 +46,11 @@ const server = http
                     case '/romanToArabic': resource = api.create(rTa); break;
                     case '/primes': resource = api.create(primes); break;
                     case '/fizzBuzz': resource = api.create(fizzBuzz); break;
-                    default: {
-                        fs.readFile(base + path, (err, data) => {
-                            if (err) {
-                                next();
-                            } else {
-
-                                res.writeHead(200, { 'Content-Type': 'text/javascript' });
-                                res.end(data);
-                            }
-                        });
-                    }
                 }
                 resource.route(req, res);
             }
-        } catch {
+        }
+        catch {
         }
     })
     .listen(port);
