@@ -1,14 +1,15 @@
 const fs = require('fs');
 const http = require('http');
 
-const calculator = require('./calculator.js');
-const rTa = require('./romanToArabic.js');
-const aTr = require('./arabicToRoman.js');
-const primes = require('./primes.js');
-const fizzBuzz = require('./fizzBuzz.js');
+const calculator = require('./services/calculator.js');
+const rTa = require('./services/romanToArabic.js');
+const aTr = require('./services/arabicToRoman.js');
+const primes = require('./services/primes.js');
+const fizzBuzz = require('./services/fizzBuzz.js');
+ 
 const api = require('./api');
 
-const home = fs.readFileSync('./index.html');
+const home = fs.readFileSync('./static/index.html');
 
 const port = process.env.PORT || 8080;
 
@@ -20,8 +21,8 @@ const server = http
             if (path === '/') {
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.end(home);
-            } else if (path === '/client.js') {
-                fs.readFile('client.js', (err, data) => {
+            } else if (/.*\.js$/.test(path)) {
+                fs.readFile('./static' + path, (err, data) => {
                     if (err) {
                         console.log(error);
                     } else {
@@ -29,8 +30,8 @@ const server = http
                         res.end(data);
                     }
                 });
-            } else if (path === '/style.css') {
-                fs.readFile('style.css', (err, data) => {
+            } else if (/.*\.css$/.test(path)) {
+                fs.readFile('./static' + path, (err, data) => {
                     if (err) {
                         console.log(error);
                     } else {
@@ -38,8 +39,8 @@ const server = http
                         res.end(data);
                     }
                 });
-            } else if (path === '/background.jpg') {
-                fs.readFile('background.jpg', (err, data) => {
+            } else if (/.*\.jpg$/.test(path)) {
+                fs.readFile('./static' + path, (err, data) => {
                     if (err) {
                         console.log(error);
                     } else {
