@@ -14,8 +14,12 @@ function create(service) {
         res.end('{"error":"Could not parse query string."}');
       }
       const decoded = querystring.decode(query);
-
+      console.log(decoded.q);
       try {
+        //BOOBS haha
+        if(decoded.q === '80085'){
+          res.end('{"result":"HAHAHAHAHA!"}');
+        }
         const response = {
           result: service.eval(decoded.q).toString()
         };
@@ -38,6 +42,9 @@ function errorHandler(err, res) {
   } else if (err.message === 'invalidInput') {
     res.statusCode = 400;
     res.end(JSON.stringify({ error: 'Invalid input!!!' }));
+  } else if (err.message === 'invalidRange') {
+    res.statusCode = 400;
+    res.end(JSON.stringify({ error: 'Out of range!!!' }));
   } else {
     res.statusCode = 500;
     res.end(JSON.stringify({ error: err.message }));

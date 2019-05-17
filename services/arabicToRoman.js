@@ -23,6 +23,14 @@ function digitConverter(dig, digitIndex) {
 }
 
 function numberConverter(number) {
+  if(number === undefined || number === '') {
+    throw new Error('invalidInput');
+  } else if (isNaN(number)){
+    throw new Error('invalidInput');
+  } else if (number>3000 || number <= 0){
+    throw new Error('invalidRange');
+  }
+
   const numStr = number.toString();
   let result = [];
   let digIndex = 0;
