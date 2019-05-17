@@ -1,11 +1,16 @@
-body {
+html{
+  width: 100%;
+  height: 100%;
+ }
+ 
+ body {
   text-align: center;
   background: #f2eeef;
   background-image: url('background.jpg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   z-index: 0;
-}
+ }
 
 /* input#queryInput {
     border-radius: 12px;
