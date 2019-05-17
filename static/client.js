@@ -77,7 +77,7 @@ function updateOutput(json) {
     output.innerHTML = json.error;
     output.className = 'error';
   } else {
-    output.innerHTML = 'Result: ' + json.result;
+    output.innerHTML = json.result;
     output.className = '';
   }
 }
