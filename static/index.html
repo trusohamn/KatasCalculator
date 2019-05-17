@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel='stylesheet' type='text/css' href='style.css'/> 
-</head> 
-    
-    <body>
-    <div id='changeFormAction'>
-        <button name='/api/calculator'>calculator</button>
-        <button name='/api/arabicToRoman'>arabic to roman</button>
-        <button name='/api/romanToArabic'>roman to arabic</button>
-        <button name='/api/fizzBuzz'>Fizz Buzz!</button>
-        <button name='/api/primes'>primes</button>
+  <link rel='stylesheet' href='style.css' />
+</head>
 
-    </div>
-
-    <div id='formDiv'>
-        <form action='/api/calculator'>
+<body>
+  <div class='calculatorBody'>
+    <div class='grid-container'>
+      <div class='i'>
+        <div id='formDiv'>
+          <form action='/api/calculator'>
             <input name='q' type='text' id='queryInput'> </input>
-            <input type='submit'></input>
-        </form>
+            <input type='submit' id='submit'></input>
+          </form>
+        </div>
+      </div>
+      <div class='o'>
+        <div id='output'></div>
+      </div>
+
+
+      <div class='cl'>
+        <div id='changeFormAction'>
+          <button name='/api/calculator' class="active " id='calc'>calc</button>
+          <button name='/api/arabicToRoman' class="inactive" id='roman'>Arabic</button>
+          <button name='/api/romanToArabic' class="inactive" id='arabic'>Roman</button>
+          <button name='/api/fizzBuzz' class="inactive" id='fizz'>Fizz</button>
+          <button name='/api/primes' class="inactive" id='prime'>Primes</button>
+        </div>
+      </div>
+
+
+      <div class='b'>
+        <div class='buttonList'>
+          <button id='seven'>7</button>
+          <button id='eight'>8</button>
+          <button id='nine'>9</button>
+          <button id='divide'>/</button>
+          <button id='four'>4</button>
+          <button id='five'>5</button>
+          <button id='six'>6</button>
+          <button id='multiply'>*</button>
+          <button id='one'>1</button>
+          <button id='two'>2</button>
+          <button id='three'>3</button>
+          <button id='subtract'>-</button>
+          <button id='zero'>0</button>
+          <button id='period'>.</button>
+          <button id='equal'>=</button>
+          <button id='plus'>+</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div id='output'>
+</body>
 
 
-    </div>
-    <script src='client.js'></script>
-    </body>
+<script src='client.js'></script>
+
+
+
+<footer class=“footer”>
+  <a href=“https://www.study-at-salt.com/“>&lt;salt&gt; </a> <a
+    href=“https://www.linkedin.com/in/marta-trusohamn/“>-Marta -</a> <a
+    href=“https://www.linkedin.com/in/camillast/“>Camila -</a> <a
+    href=“https://www.linkedin.com/in/peter-ivey-hansen-a5b53a14b/“>Peter -</a> <a
+    href=“https://www.linkedin.com/in/i-think-im-poyan/“>Poyan </a> <a
+    href=“https://www.study-at-salt.com/“>&lt;salt/&gt; </a> </footer>
