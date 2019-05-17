@@ -35,6 +35,9 @@ function errorHandler(err, res) {
   } else if (err.message === 'zeroDivisionError') {
     res.statusCode = 400;
     res.end(JSON.stringify({ error: 'Don\'t divide by zero!!!' }));
+  } else if (err.message === 'invalidInput') {
+    res.statusCode = 400;
+    res.end(JSON.stringify({ error: 'Invalid input!!!' }));
   } else {
     res.statusCode = 500;
     res.end(JSON.stringify({ error: err.message }));

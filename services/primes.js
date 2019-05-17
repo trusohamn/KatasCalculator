@@ -1,4 +1,8 @@
 function primeGenerator(num) {
+    if(num === undefined || num === '') {
+      throw new Error('invalidInput');
+    }
+
     const arr = [];
     let n = num;
   
@@ -7,7 +11,7 @@ function primeGenerator(num) {
       if (n % i === 0) {
         arr.push(i);
         n /= i;
-        i = 2;
+        i--;
       }
     }
     if (n !== 1) {

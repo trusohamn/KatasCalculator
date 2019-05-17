@@ -26,7 +26,13 @@ form.addEventListener('submit', (e) => {
 });
 
 function updateOutput(json) {
-    output.innerHTML = 'Result: ' + json.result;
+    if (json.error) {
+        output.innerHTML = 'Error: ' + json.error;
+        output.className = 'error';
+    } else {
+        output.innerHTML = 'Result: ' + json.result;
+        output.className = '';
+    }
 }
 
 function encode(query) {
