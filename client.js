@@ -8,11 +8,13 @@ const input = document.getElementById('queryInput');
 const output = document.getElementById('output');
 
 buttons.addEventListener('click', (e) => {
-    form.action = e.target.name;
-    for(let button of buttons.children){
-        button.className = 'inactive';
+    if(e.target.tagName === 'BUTTON') {
+        form.action = e.target.name;
+        for(let button of buttons.children){
+            button.className = 'inactive';
+        }
+        e.target.className = 'active';
     }
-    e.target.className = 'active';
 });
 
 form.addEventListener('submit', (e) => {
